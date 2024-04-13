@@ -1,0 +1,12 @@
+@if(messageText!='' && messageType != ''){
+<div
+  class="message-alert"
+  [ngClass]="{
+    info: messageType == 'info',
+    success: messageType == 'success',
+    error: messageType == 'error'
+  }"
+>
+  {{ messageText }}
+</div>
+}

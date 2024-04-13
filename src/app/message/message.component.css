@@ -1,0 +1,17 @@
+.message-alert{
+  color: white;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.info{
+  background-color: #2196f3;
+}
+
+.error{
+  background-color: #e53935;
+}
+
+.success{
+  background-color: #4caf50;
+}

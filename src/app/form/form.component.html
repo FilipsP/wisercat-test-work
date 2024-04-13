@@ -1,0 +1,120 @@
+<div class="form-container">
+  <form class="user-form" [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div class="form-message-block">
+      <form-message
+        [messageText]="messageText"
+        [messageType]="messageType"
+      ></form-message>
+    </div>
+    <label for="name">Name:</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      (blur)="onInputBlur()"
+      (focus)="onFocus()"
+    />
+    <div class="error-text-block">
+      <span
+        class="error-text"
+        *ngIf="
+          userForm.get('name')?.hasError('required') &&
+          !inputFocus &&
+          userForm.get('name')?.touched
+        "
+      >
+        This field is required
+      </span>
+    </div>
+    <label for="surname">Surname:</label>
+    <input
+      id="surname"
+      type="text"
+      formControlName="surname"
+      (blur)="onInputBlur()"
+      (focus)="onFocus()"
+    />
+    <div class="error-text-block">
+      <span
+        class="error-text"
+        *ngIf="
+          userForm.get('surname')?.hasError('required') &&
+          !inputFocus &&
+          userForm.get('surname')?.touched
+        "
+      >
+        This field is required
+      </span>
+    </div>
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      (blur)="onInputBlur()"
+      (focus)="onFocus()"
+    />
+    <div class="error-text-block">
+      <span
+        class="error-text"
+        *ngIf="
+          userForm.get('email')?.hasError('required') &&
+          !inputFocus &&
+          userForm.get('email')?.touched
+        "
+      >
+        This field is required
+      </span>
+      <span
+        class="error-text"
+        *ngIf="
+          !userForm.get('email')?.hasError('required') &&
+          userForm.get('email')?.invalid &&
+          !inputFocus &&
+          userForm.get('email')?.touched &&
+          userForm.get('email')?.dirty
+        "
+      >
+        Invalid email format
+      </span>
+    </div>
+    <label for="experience">Working experience(months):</label>
+    <input
+      id="experience"
+      type="number"
+      formControlName="experience"
+      (blur)="onInputBlur()"
+      (focus)="onFocus()"
+    />
+    <div class="error-text-block">
+      <span
+        class="error-text"
+        *ngIf="
+          userForm.get('experience')?.hasError('required') &&
+          !inputFocus &&
+          userForm.get('experience')?.touched
+        "
+      >
+        This field is required
+      </span>
+      <span
+        class="error-text"
+        *ngIf="
+          !userForm.get('experience')?.hasError('required') &&
+          userForm.get('experience')?.invalid &&
+          !inputFocus &&
+          userForm.get('experience')?.touched &&
+          userForm.get('experience')?.dirty
+        "
+      >
+        Invalid number format
+      </span>
+    </div>
+    <div class="button-container">
+      <button class="form-button reset" type="button" (click)="resetForm()">
+        Reset
+      </button>
+      <button class="form-button submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
